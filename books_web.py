@@ -5,6 +5,8 @@ Created on Tue Feb  9 15:51:19 2021
 @author: gabre
 """
 
+# Top 50 books - Amazon
+
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 import pandas as pd
@@ -25,18 +27,18 @@ containers = page_soup.findAll("div",{"class":"a-section a-spacing-none aok-rela
 
 
 
-lista1=[]
-lista2=[]
-lista3=[]
-lista4=[]
-lista5=[]
+list1=[]
+list2=[]
+list3=[]
+list4=[]
+list5=[]
 
 for container in containers:
 
-    nome_livro = container.a.img["alt"]
+    book_name = container.a.img["alt"]
     
-    div_autor = container.findAll("div",{"class":"a-row a-size-small"})
-    autor = div_autor[0].text
+    div_author = container.findAll("div",{"class":"a-row a-size-small"})
+    author = div_author[0].text
     
     div_rating = container.findAll("div",{"class":"a-icon-row a-spacing-none"})
     if div_rating != []:
@@ -45,23 +47,18 @@ for container in containers:
         num_aval = div_aval[0].text
     else:
         rating = ""
-        num_aval = ""
-    div_preco = container.findAll("div",{"class":"a-row"})
-    preco = div_preco[3].span.span.text
+        n_aval = ""
+    div_price = container.findAll("div",{"class":"a-row"})
+    price = div_price[3].span.span.text
     
-    lista1.append(nome_livro)
+    lista1.append(book_name)
     lista2.append(rating)
-    lista3.append(num_aval)
-    lista4.append(autor)
-    lista5.append(preco)
-    
-    #print(nome_livro)
-    #print(autor)
-    #print(rating)
-    #print(num_aval)
+    lista3.append(n_aval)
+    lista4.append(author)
+    lista5.append(price)
 
-df = pd.DataFrame({'Nome do Livro':lista1,'Autor':lista4,'Rating':lista2,'Num Aval':lista3,'Preço':lista5})
-df.to_excel('livros_v2.xlsx')
+df = pd.DataFrame({'Title':list1,'Author':list4,'Rating':list2,'Num Aval':list3,'Price':list5})
+df.to_excel('books_v2.xlsx')
 
 
 
