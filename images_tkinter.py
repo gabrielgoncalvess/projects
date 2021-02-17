@@ -10,9 +10,9 @@ from PIL import ImageTk,Image
 
 root = Tk()
 root.title("Images")
-root.iconbitmap("general_audio_player.ico")
+root.iconbitmap("file_name.ico")
 
-my_img1 = ImageTk.PhotoImage(Image.open("jobsonn.png"))
+my_img1 = ImageTk.PhotoImage(Image.open("image1.png"))
 my_img2 = ImageTk.PhotoImage(Image.open("image2.jpg"))
 my_img3 = ImageTk.PhotoImage(Image.open("image3.jpg"))
 my_img4 = ImageTk.PhotoImage(Image.open("image4.jpg"))
