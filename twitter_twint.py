@@ -10,10 +10,10 @@ import tweepy as tw
 import pandas as pd
 
 # Twitter API
-consumer_key = 'QDLIVaDcozHczwGJKIPimO3DZ'
-consumer_secret = 'GK4XheEkf94PKiLaZcQBIxUb3VV1c2PKAjRIPF3Geoq6PmLd2V'
-token = '1346543793009545216-j1NFVxNWTUMrGbVHnlvAfDBq2peNo4'
-token_secret = 'ZWSk424OsrHXHMFQtrCrooZARLZK1nkEsrDbTshe3C5iu'
+consumer_key = ''
+consumer_secret = ''
+token = ''
+token_secret = ''
 
 auth = tw.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(token, token_secret)
@@ -25,7 +25,7 @@ from datetime import date, timedelta
 delta = timedelta(days=60)        # Intervalo para busca
 start_date = date.today()        # data de hoje
 start_date -= delta
-search_term = "bradesco"
+search_term = "theme"
 limit = 2000
 
 # Inicializa dataframe vazio para salvar todos os tweets
