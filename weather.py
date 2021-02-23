@@ -18,7 +18,7 @@ root.iconbitmap("W_logo.ico")
 
 logo = ImageTk.PhotoImage(Image.open("WeatherApp.png"))
 
-# https://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=10028&distance=5&API_KEY=5354AE3C-ECF7-43B0-A285-51886179736B
+# https://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=10028&distance=5&API_KEY=your_API_KEY
 
 # Create Zipcode Lookup Function
 def ziplookup():
@@ -29,7 +29,7 @@ def ziplookup():
     top.title("Second Window")
     
     try:
-        api_request = requests.get("https://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=" + zip.get() + "&distance=5&API_KEY=5354AE3C-ECF7-43B0-A285-51886179736B")
+        api_request = requests.get("https://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=" + zip.get() + "&distance=5&API_KEY=your_API_KEY")
         api = json.loads(api_request.content)
         city = api[0]['ReportingArea']
         quality = api[0]['AQI']
