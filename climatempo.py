@@ -9,7 +9,7 @@ import requests
 import json 
 import datetime
 
-token = "728e73adaf650e3bc63d786a377135f4"
+token = "your-token"
 
 
 estado = "RJ"#input("Digite o estado: ")
