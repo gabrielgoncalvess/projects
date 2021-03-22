@@ -7,6 +7,7 @@ Created on Mon Mar 22 15:52:48 2021
 
 import pandas as pd
 import sqlalchemy
+import pymysql
 
 # mysql+mysqlconnector://<user>:<password>@<host>[:<port>]/<dbname>
 
@@ -32,5 +33,18 @@ INNER JOIN productlines t2
 df2 = pd.read_excel(r"Consumo_Cerveja.xlsx")
 df2 = df2.drop(columns=["Unnamed: 7", "Unnamed: 8", "Unnamed: 9", "Unnamed: 10", "Unnamed: 11", "Unnamed: 12", "Unnamed: 13"])
 
-# salvar no mysql
+# save into mysql
 df2.to_sql(name = 'consumo_cerveja', con = engine, index = False) # if_exists = 'append' or if_exists = 'replace'
+
+'''
+# another way to connect to a database
+connection = pymysql.connect(host='127.0.0.1',
+                             user='root',
+                             password='flavio123',
+                             database='sql_novo',
+                             )
+c = connection.cursor()
+c.execute("SELECT * FROM consumo_cerveja")
+result = c.fetchone()
+print(result)
+'''
