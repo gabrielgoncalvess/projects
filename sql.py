@@ -38,10 +38,10 @@ df2.to_sql(name = 'consumo_cerveja', con = engine, index = False) # if_exists = 
 
 '''
 # another way to connect to a database
-connection = pymysql.connect(host='127.0.0.1',
+connection = pymysql.connect(host='local',
                              user='root',
-                             password='flavio123',
-                             database='sql_novo',
+                             password='1234',
+                             database='sql_db',
                              )
 c = connection.cursor()
 c.execute("SELECT * FROM consumo_cerveja")
