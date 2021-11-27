@@ -19,7 +19,6 @@ root.geometry("400x600")
 # Create a database or connect to one
 conn = sqlite3.connect("address_book.db")
 
-
 # Create cursor
 c = conn.cursor()
 
@@ -36,7 +35,7 @@ c.execute('''CREATE TABLE addresses (first_name text,
 """
 
 
-def uptade():
+def update():
     # Create a database or connect to one
     conn = sqlite3.connect("address_book.db")
     
@@ -73,11 +72,11 @@ def uptade():
     editor.destroy()
     
 
-# Create Edit Function to Uptade a Record
+# Create Edit Function to update a Record
 def edit():
     global editor
     editor = Tk()
-    editor.title("Uptade a Record")
+    editor.title("update a Record")
     editor.geometry("400x400")
     # Create a database or connect to one
     conn = sqlite3.connect("address_book.db")
@@ -144,8 +143,8 @@ def edit():
     
     
     # Create a Save Button To Save Edited Record
-    uptade_btn = Button(editor, text="Save Record", command=uptade)
-    uptade_btn.grid(row=6, column=0, columnspan=2, pady=10, padx=10, ipadx=145)
+    update_btn = Button(editor, text="Save Record", command=update)
+    update_btn.grid(row=6, column=0, columnspan=2, pady=10, padx=10, ipadx=145)
  
     
 
@@ -283,8 +282,8 @@ delete_btn = Button(root, text="Delete Record", command=delete)
 delete_btn.grid(row=10, column=0, columnspan=2, pady=10, padx=10, ipadx=136)
 
 # Create an Update Button
-uptade_btn = Button(root, text="Edit Record", command=edit)
-uptade_btn.grid(row=11, column=0, columnspan=2, pady=10, padx=10, ipadx=143)
+update_btn = Button(root, text="Edit Record", command=edit)
+update_btn.grid(row=11, column=0, columnspan=2, pady=10, padx=10, ipadx=143)
 
 
 # Commit Changes
